@@ -50,7 +50,7 @@ android {
     }
 
     dependencies {
-        implementation("com.github.TrevorRowe123:android-opencc:page_fix")
+        implementation("com.github.ZihYangLin:android-opencc:1.2.1")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.20")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
