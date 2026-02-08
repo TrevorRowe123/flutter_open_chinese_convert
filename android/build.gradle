@@ -1,73 +1,36 @@
 group = "net.zonble.flutter_open_chinese_convert"
 version = "1.0-SNAPSHOT"
 
-buildscript {
-    ext.kotlin_version = "2.1.0"
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.12.3")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        // maven { url 'https://jitpack.io' }
-    }
-}
-
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 
 android {
     namespace = "net.zonble.flutter_open_chinese_convert"
 
-    compileSdk = 36
+    compileSdkVersion flutter.compileSdkVersion
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
+        jvmTarget = "1.8"
     }
 
     sourceSets {
         main.java.srcDirs += "src/main/kotlin"
-        test.java.srcDirs += "src/test/kotlin"
     }
 
     defaultConfig {
-        minSdk = 24
+        minSdkVersion flutter.minSdkVersion
     }
 
     dependencies {
         implementation("com.github.TrevorRowe123:android-opencc-16kb:master-SNAPSHOT")
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.20")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 
-        testImplementation("org.jetbrains.kotlin:kotlin-test")
-        testImplementation("org.mockito:mockito-core:5.19.0")
-    }
-
-    testOptions {
-        unitTests.all {
-            useJUnitPlatform()
-
-            testLogging {
-               events "passed", "skipped", "failed", "standardOut", "standardError"
-               outputs.upToDateWhen {false}
-               showStandardStreams = true
-            }
-        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.20")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     }
 }
